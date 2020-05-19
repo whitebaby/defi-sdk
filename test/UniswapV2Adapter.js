@@ -21,13 +21,13 @@ contract('UniswapV2Adapter', () => {
   let erc20TokenAdapterAddress;
   const wethDaiUni = [
     wethDaiUniAddress,
-    'DAI/WETH Pool',
+    'DAI/ETH Pool',
     'UNI-V2',
     '18',
   ];
   // const wethCdaiUni = [
   //   wethCdaiUniAddress,
-  //   'WETH/cDAI Uniswap Pool',
+  //   'ETH/cDAI Uniswap Pool',
   //   'UNI-V2',
   //   '18',
   // ];

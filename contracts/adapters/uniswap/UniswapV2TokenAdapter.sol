@@ -51,6 +51,8 @@ interface UniswapV2Pair {
  */
 contract UniswapV2TokenAdapter is TokenAdapter {
 
+    address internal constant WETH = 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2;
+
     /**
      * @return TokenMetadata struct with ERC20-style token info.
      * @dev Implementation of TokenAdapter interface function.
@@ -105,14 +107,18 @@ contract UniswapV2TokenAdapter is TokenAdapter {
     }
 
     function getSymbol(address token) internal view returns (string memory) {
-        (, bytes memory returnData) = token.staticcall(
-            abi.encodeWithSelector(ERC20(token).symbol.selector)
-        );
-
-        if (returnData.length == 32) {
-            return convertToString(abi.decode(returnData, (bytes32)));
+        if (token == WETH) {
+            return "ETH";
         } else {
-            return abi.decode(returnData, (string));
+            (, bytes memory returnData) = token.staticcall(
+                abi.encodeWithSelector(ERC20(token).symbol.selector)
+            );
+
+            if (returnData.length == 32) {
+                return convertToString(abi.decode(returnData, (bytes32)));
+            } else {
+                return abi.decode(returnData, (string));
+            }
         }
     }
 
