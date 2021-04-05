@@ -1,8 +1,8 @@
 const ProtocolAdapter = artifacts.require('LiquityDebtAdapter');
 
 contract.only('LiquityDebtAdapter', () => {
-  const lusdAddress = '';
-  const testAddress = '';
+  const lusdAddress = '0x5f98805A4E8be255a32880FDeC7F6728C6568bA0';
+  const testAddress = '0x42b9dF65B219B3dD36FF330A4dD8f327A6Ada990';
 
   let accounts;
   let protocolAdapterContract;

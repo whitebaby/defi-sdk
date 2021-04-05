@@ -41,8 +41,8 @@ contract LiquityDebtAdapter is ProtocolAdapter {
 
     string public constant override tokenType = "ERC20";
 
-    address internal constant LUSD = address(0);
-    address internal constant TROVE_MANAGER = address(0);
+    address internal constant LUSD = 0x5f98805A4E8be255a32880FDeC7F6728C6568bA0;
+    address internal constant TROVE_MANAGER = 0xA39739EF8b0231DbFA0DcdA07d7e29faAbCf4bb2;
 
     /**
      * @return Amount of debt to the protocol by the given account.

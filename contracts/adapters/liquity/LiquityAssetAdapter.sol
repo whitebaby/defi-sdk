@@ -41,15 +41,15 @@ contract LiquityAssetAdapter is ProtocolAdapter {
 
     string public constant override tokenType = "ERC20";
 
-    address internal constant LIQ = address(0);
-    address internal constant TROVE_MANAGER = address(0);
+    address internal constant ETH = 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE;
+    address internal constant TROVE_MANAGER = 0xA39739EF8b0231DbFA0DcdA07d7e29faAbCf4bb2;
 
     /**
      * @return Amount of collateral locked on the protocol by the given account.
      * @dev Implementation of ProtocolAdapter interface function.
      */
     function getBalance(address token, address account) external view override returns (uint256) {
-        if (token != LIQ) {
+        if (token != ETH) {
             return 0;
         }
 
