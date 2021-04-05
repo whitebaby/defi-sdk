@@ -40,6 +40,10 @@ interface GenesisGroup {
  */
 contract GenesisGroupTokenAdapter is TokenAdapter {
 
+    address internal constant FEI = 0x956F47F50A910163D8BF957Cf5846D573E7f87CA;
+    address internal constant TRIBE = 0xc7283b66Eb1EB5FB86327f08e1B5816b0720212B;
+
+
     /**
      * @return TokenMetadata struct with ERC20-style token info.
      * @dev Implementation of TokenAdapter interface function.
@@ -76,18 +80,3 @@ contract GenesisGroupTokenAdapter is TokenAdapter {
         return underlyingTokens;
     }
 }
-```suggestion
-        uint256 totalAmount = 0;
-        if (token == IBZRX || token == VBZRX || token == BZRX || token == BPT) {
-            totalAmount += StakingRewards(STAKING_CONTRACT).balanceOfByAsset(token, account);
-        }
-        if (token == BZRX) {
-            (uint256 bzrxEarnings, , , ) = StakingRewards(STAKING_CONTRACT).earned(account);
-            totalAmount += bzrxEarnings;
-        }
-        if (token == CURVE3CRV) {
-            (, uint256 curve3crvEarnings, , ) = StakingRewards(STAKING_CONTRACT).earned(account);
-            totalAmount += curve3crvEarnings;
-        }
-        return totalAmount;
-```
